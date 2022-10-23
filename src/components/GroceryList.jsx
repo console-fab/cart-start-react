@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Form from './Form';
 import { Axios } from 'axios';
 
 function GroceryList() {
-  
+    
+    const [results, setResults] = useState([]);
     const [groceryItem, setGroceryItem] = useState({
         name: '',
         category: '',
@@ -22,14 +23,26 @@ function GroceryList() {
         setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value})
     }
 
+
+    //CREATE
     const handleSubmit = (e) => {
         e.preventDefault();
 
         //post into the grocery-list api
         axios.post('https://cart-start.herokuapp.com/grocery-list', groceryItem)
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        //figure out how to clear form
     }
+
+    //READ
+    useEffect(() => {
+        axios
+        .get('https://cart-start.herokuapp.com/grocery-list')
+        .then((res) => setResults(res.data))}, []);    
+
+    //UPDATE
+
+
+    //DELETE
 
     return (
         <div>
@@ -37,6 +50,11 @@ function GroceryList() {
             />
             <h1>Category 1</h1>
             {/* make use of .filter */}
+            <ul>
+                {results.map((result) => (
+                <li key={result._id}>{result.name}</li>
+            ))}
+            </ul>
             <h1>Category 2</h1>
             <h1>Category 3</h1>
         </div>
