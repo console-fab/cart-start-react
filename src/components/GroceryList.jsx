@@ -10,13 +10,18 @@ function GroceryList() {
         location: '',
     });
 
+    // const [name, setName] = useState('');
+    // const [quantity, setQuantity] = useState('');
+    // const [category, setCategory] = useState('');
+    // const [location, setLocation] = useState('');
+    
+
     const handleChange = (e) => {
         setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value});
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        e.target.reset();
 
         //update into the grocery-list api
         fetch('https://cart-start.herokuapp.com/grocery-list', {
@@ -27,7 +32,10 @@ function GroceryList() {
             body: JSON.stringify(groceryItem),
         })
         .then((res) => res.json())
-        .then((data) => setGroceryItem(data));
+        .then((data) => {
+            setGroceryItem(data);
+            //clearing form should go here, not sure how to implement
+        })
     }
 
     return (
