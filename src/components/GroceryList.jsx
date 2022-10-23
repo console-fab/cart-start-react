@@ -1,5 +1,7 @@
+import axios from 'axios';
 import { useState } from 'react';
 import Form from './Form';
+import { Axios } from 'axios';
 
 function GroceryList() {
   
@@ -17,25 +19,16 @@ function GroceryList() {
     
 
     const handleChange = (e) => {
-        setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value});
+        setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value})
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        //update into the grocery-list api
-        fetch('https://cart-start.herokuapp.com/grocery-list', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(groceryItem),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            setGroceryItem(data);
-            //clearing form should go here, not sure how to implement
-        })
+        //post into the grocery-list api
+        axios.post('https://cart-start.herokuapp.com/grocery-list', groceryItem)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
     }
 
     return (
