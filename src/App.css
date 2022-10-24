@@ -5,7 +5,7 @@
 }
 
 .wave {
-  background-image: linear-gradient(-10deg, rgb(75, 75, 75) 56%, rgb(199, 199, 199) 50%);
+  background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
   opacity: .5;
   z-index: -1;
   top: 0;
@@ -22,7 +22,7 @@
 }
 
 .wave3 {
-  animation-duration: 20s;
+  animation-duration: 21s;
 }
 
 
@@ -41,11 +41,12 @@
 }
 
 .bubble {
-  padding: 1rem;
+  padding: .5rem;
   border: 1px solid white;
   font-size: 1.2rem;
   text-shadow: .5px .5px .10px white;
   border-radius: .5rem;
+  width: 97%;
 }
 
 .about {
@@ -54,7 +55,7 @@
 
 hr {
   border: .6rem dotted rgba(250, 250, 250, .9);
-  width: 35rem;
+  width: 97%;
 }
 
 .creators {
@@ -92,7 +93,7 @@ hr {
   transform: translate(-50%, -50%);
 }
 
-/* .lists {
+.lists {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
@@ -105,44 +106,44 @@ hr {
 
 .produce {
   border: 1px solid green;
-  background: rgba(112, 192, 158, 0.9);
+  background: rgba(112, 192, 158, .9);
 }
 
 .frozen {
   border: 1px solid blue;
-  background: rgba(144, 188, 224, 0.9);
+  background: rgba(144, 188, 224, .9);
 }
 
 .dry-goods {
   border: 1px solid orange;
-  background: rgba(204, 157, 122, 0.9);
+  background: rgba(204, 157, 122, .9);
 }
 
 .bakery {
   border: 1px solid purple;
-  background: rgba(216, 163, 225, 0.9);
+  background: rgba(216, 163, 225, .9);
 }
 
 .dairy {
   border: 1px solid yellow;
-  background: rgba(204, 204, 108, 0.9);
+  background: rgba(204, 204, 108, .9);
 }
 
 .meat-seafood {
   border: 1px solid red;
-  background: rgba(236, 143, 134, 0.9);
+  background: rgba(236, 143, 134, .9);
 }
 
 .other {
   background: rgba(250, 250, 250, .9);
-} */
+}
 
 @media only screen and (max-width: 600px) {
   .wave {
     animation: none;
     }
 
-    hr {
-      width: 20rem;
+    .welcome {
+      font-size: 1.5rem;
     }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function About(props) {
     return (
         <div>
-            <h1 className='welcome'>Welcome to Cart-Start 🛒</h1>
+            <h1 className='welcome'>Welcome to <br /> Cart-Start 🛒</h1>
             <span className='center'>
             <p className='about bubble'>This essential Grocery List is a life saver on the busy weeks. <br /> Add, view, edit or remove grocery items to your list. We'll do the organizing for you.</p>
             <hr /> 
