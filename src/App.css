@@ -1,38 +1,149 @@
 .App {
   text-align: center;
+  font-family: 'Fuzzy Bubbles', cursive;
+  -webkit-font-smoothing: antialiased;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wave {
+  background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
+  opacity: .5;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  right: -50%;
+  position: fixed;
+  animation: slide 16s ease-in-out infinite alternate;
+  animation-direction: alternate-reverse;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.wave2 {
+  animation-duration: 18s;
+}
+
+.wave3 {
+  animation-duration: 21s;
+}
+
+
+@keyframes slide {
+  15% {
+    transform: translateX(-8%);
+  }
+
+  30% {
+    transform: translateX(10%);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.welcome {
+  font-size: 2.5rem;
+}
+
+.bubble {
+  padding: .5rem;
+  border: 1px solid white;
+  font-size: 1.2rem;
+  text-shadow: .5px .5px .10px white;
+  border-radius: .5rem;
+  width: 97%;
+}
+
+.about {
+  background: rgba(250, 250, 250, .6);
+}
+
+hr {
+  border: .6rem dotted rgba(250, 250, 250, .9);
+  width: 97%;
+}
+
+.creators {
+  padding-top: .5rem;
+  text-shadow: none;
+  font-size: .8rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.grocery-link {
+  background: rgba(0, 0, 0, 0);
+  color: white;
+  font-family: 'Fuzzy Bubbles', cursive;
+  border: 1px solid white;
+  border-radius: .5rem;
+  height: 5rem;
+  width: 16rem;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  text-shadow: .3px .3px .8px black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grocery-link:hover {
+  background: rgba(250, 250, 250, .9);
+  text-shadow: none;
+  color: black;
+  transition: 1s;
+  cursor: grabbing;
+}
+
+.center {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lists {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.list {
+  font-size: 1rem;
+  background: rgba(250, 250, 250, .9);
+}
+
+.produce {
+  border: 1px solid green;
+  background: rgba(112, 192, 158, .9);
+}
+
+.frozen {
+  border: 1px solid blue;
+  background: rgba(144, 188, 224, .9);
+}
+
+.dry-goods {
+  border: 1px solid orange;
+  background: rgba(204, 157, 122, .9);
+}
+
+.bakery {
+  border: 1px solid purple;
+  background: rgba(216, 163, 225, .9);
+}
+
+.dairy {
+  border: 1px solid yellow;
+  background: rgba(204, 204, 108, .9);
+}
+
+.meat-seafood {
+  border: 1px solid red;
+  background: rgba(236, 143, 134, .9);
+}
+
+.other {
+  background: rgba(250, 250, 250, .9);
+}
+
+@media only screen and (max-width: 600px) {
+  .wave {
+    animation: none;
+    }
+
+    .welcome {
+      font-size: 1.5rem;
+    }
 }
