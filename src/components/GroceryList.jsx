@@ -2,13 +2,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Form from './Form';
 import EditForm from './EditForm';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function GroceryList() {
     
     //CONSTANTS
     const [results, setResults] = useState([]);
-    const { _id } = useParams();
     const navigate = useNavigate();
     const [groceryItem, setGroceryItem] = useState({
         name: '',
@@ -57,16 +56,15 @@ function GroceryList() {
             {/* make use of .filter for each category*/}
             <ul>
                 {results.map((result) => (
-                <li key={result._id}>{result._id} {result.name} {result.quantity} {result.location}
-                {/* <button type='button' onClick={closeEditForm}>Close</button> */}
+                <li key={result._id}>{result.name} {result.quantity} {result.location}
                 {/* <button onClick={showEditForm}>Edit</button> */}
+                {/* clicking on edit button opens up EditForm modal */}
                 <button onClick={()=>handleDelete(result._id)}>Delete</button>
                 </li>
             ))}
             </ul>
             <h1>Category 2</h1>
             <h1>Category 3</h1>
-            {/* <EditForm groceryItem={groceryItem}/> */}
         </div>
     );
 }
