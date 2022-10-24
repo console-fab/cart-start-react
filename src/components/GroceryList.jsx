@@ -12,7 +12,7 @@ function GroceryList() {
     const [groceryItem, setGroceryItem] = useState({
         name: '',
         category: '',
-        quantity: 0,
+        quantity: '',
         location: '',
     });
 
@@ -20,18 +20,19 @@ function GroceryList() {
     setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value})
     }
 
-    // const [name, setName] = useState('');
-    // const [quantity, setQuantity] = useState('');
-    // const [category, setCategory] = useState('');
-    // const [location, setLocation] = useState('');
-
     //CREATE
     const handleSubmit = e => {
         e.preventDefault();
 
         //post into the grocery-list api
         axios.post('https://cart-start.herokuapp.com/grocery-list', groceryItem)
-        //figure out how to clear form
+        //Clear Form
+        setGroceryItem({
+        name: '',
+        category: '',
+        quantity: '',
+        location: '',
+    });
     }
 
     //READ ALL
@@ -39,6 +40,7 @@ function GroceryList() {
         axios
         .get(`https://cart-start.herokuapp.com/grocery-list/`)
         .then((res) => setResults(res.data))
+       
     })
 
     //DELETE
@@ -50,23 +52,30 @@ function GroceryList() {
     }
 
     return (
-        <div>
-            <Form groceryItem={groceryItem} handleSubmit={handleSubmit} handleChange={handleChange}/>
-            <h1>Category 1</h1>
-            {/* make use of .filter for each category*/}
-            <ul>
-                {results.map((result) => (
-                <li key={result._id}>{result.name} {result.quantity} {result.location}
-                {/* <button onClick={showEditForm}>Edit</button> */}
-                {/* clicking on edit button opens up EditForm modal */}
-                <button onClick={()=>handleDelete(result._id)}>Delete</button>
-                </li>
-            ))}
-            </ul>
-            <h1>Category 2</h1>
-            <h1>Category 3</h1>
-        </div>
-    );
+			<div>
+				<Form
+					groceryItem={groceryItem}
+					handleSubmit={handleSubmit}
+					handleChange={handleChange}
+				/>
+				<h1>Category 1</h1>
+				{/* make use of .filter for each category*/}
+				<ul>
+					{results.map((result) => (
+						<li key={result._id}>
+							{result.name} 
+							{result.quantity ? ` x${result.quantity}` : ''}
+							{result.location ? `, location: ${result.location}` : ''}
+							{/* <button onClick={showEditForm}>Edit</button> */}
+							{/* clicking on edit button opens up EditForm modal */}
+							<button onClick={() => handleDelete(result._id)}>X</button>
+						</li>
+					))}
+				</ul>
+				<h1>Category 2</h1>
+				<h1>Category 3</h1>
+			</div>
+		);
 }
 
 export default GroceryList;
