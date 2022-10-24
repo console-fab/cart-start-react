@@ -6,7 +6,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
     return (
 			<div className='form-box'>
 				<form onSubmit={handleSubmit}>
-					<label for='name'>Item Name:</label>
+                <label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
 						// required
@@ -16,7 +16,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						value={groceryItem.name}
 					/>
 					<p />
-					<label for='category'>Category:</label>
+					<label htmlFor='category'>Category:</label>
 					<br></br>
 					{/* <input
 						onChange={handleChange}
@@ -38,7 +38,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						<option value='frozen'>🧊frozen</option>
 					</select>
 					<p />
-					<label for='quantity'>Quantity:</label>
+                <label htmlFor='quantity'>Quantity:</label>
 					<br></br>
 					<input
 						onChange={handleChange}
@@ -48,7 +48,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						value={groceryItem.quantity}
 					/>
 					<p />
-					<label for='location'>Location:</label>
+                <label htmlFor='location'>Location:</label>
 					<br></br>
 					<input
 						onChange={handleChange}
