@@ -6,7 +6,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
                 <label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
-						// required
+						required
 						onChange={handleChange}
 						id='name'
 						type='text'
@@ -19,17 +19,18 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						id='category'
 						name='category'
 						value={groceryItem.category}
-						onChange={handleChange}>
+						onChange={handleChange}
+						>
 						<option value='other'>🍾other</option>
 						<option value='produce'>🍎produce</option>
-                        <option value='bakery'>🥐bakery</option>
+						<option value='bakery'>🥐bakery</option>
 						<option value='meat-seafood'>🥩meat-seafood</option>
-                        <option value='dairy'>🧀dairy</option>
-                        <option value='dry-goods'>🥫dry-goods</option>
+						<option value='dairy'>🧀dairy</option>
+						<option value='dry-goods'>🥫dry-goods</option>
 						<option value='frozen'>🧊frozen</option>
 					</select>
 					<p />
-                <label htmlFor='quantity'>Quantity:</label>
+					<label htmlFor='quantity'>Quantity:</label>
 					<br></br>
 					<input
 						onChange={handleChange}
@@ -39,7 +40,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						value={groceryItem.quantity}
 					/>
 					<p />
-                <label htmlFor='location'>Location:</label>
+					<label htmlFor='location'>Location:</label>
 					<br></br>
 					<input
 						onChange={handleChange}

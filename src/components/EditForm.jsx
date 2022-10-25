@@ -8,20 +8,22 @@ function EditForm( {closeModal, result} ) {
 	const [ groceryItem, setGroceryItem ] = useState(null)
 
 	const handleChange = e => {
-    setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value })
+    setGroceryItem({ [e.target.id]: e.target.value })
     }
     
     //UPDATE
     const handleEdit = e => {
         e.preventDefault();
-        axios.patch(`https://cart-start.herokuapp.com/grocery-list/${result._id}`, groceryItem);
+        axios.patch(`https://cart-start.herokuapp.com/grocery-list/${result._id}`, groceryItem)
+		.then(res => res.data);
+		closeModal(false);
         navigate('/grocery-list')
     }
 
     return (
 					<div id='modal-content'>
 					<h2>Editing {result.name}</h2>
-					<form className='bubble' onSubmit={()=>handleEdit(result._id)}>
+					<form className='bubble' onSubmit={handleEdit}>
 						<label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
@@ -67,9 +69,6 @@ function EditForm( {closeModal, result} ) {
 						defaultValue={result.location}
 					/>
 						<button className='submit' type='submit'>Submit</button>
-						<button className='close' type='button' onClick={() => closeModal(false)}>
-							Close
-						</button>
 					</form>
 					</div>
 	);
