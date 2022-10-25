@@ -1,11 +1,8 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react';
-
 const Form = ({groceryItem, handleChange, handleSubmit}) => {
 
     return (
 			<div className='form-box'>
-				<form onSubmit={handleSubmit}>
+				<form className='bubble' onSubmit={handleSubmit}>
                 <label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
@@ -18,12 +15,6 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 					<p />
 					<label htmlFor='category'>Category:</label>
 					<br></br>
-					{/* <input
-						onChange={handleChange}
-						id='category'
-						type='text'
-						value={groceryItem.category}
-					/> */}
 					<select
 						id='category'
 						name='category'
