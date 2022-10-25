@@ -59,7 +59,6 @@ function GroceryList() {
         navigate('/grocery-list');
     }
 
-<<<<<<< HEAD
     let otherResults = results.filter(checkOther)
 
     function checkOther(item) {
@@ -169,16 +168,16 @@ function GroceryList() {
 				</ul>
 				<h1 className='dairy'>Dairy</h1>
 				<ul>
-					{dairyResults.map((dairyResult) => (
-						<li className='bubble' key={dairyResult._id}>
-							{dairyResult.name}
-							{dairyResult.quantity ? ` x${dairyResult.quantity}` : ''}
-							{dairyResult.location
-								? `, location: ${dairyResult.location}`
+					{dairyResults.map((result) => (
+						<li className='bubble' key={result._id}>
+							{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}
+							{result.location
+								? `, location: ${result.location}`
 								: ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
                {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button onClick={() => handleDelete(dairyResult._id)}>X</button>
+							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
 				</ul>
@@ -212,8 +211,6 @@ function GroceryList() {
 				</ul>
 			</div>
 		);
-=======
->>>>>>> 2445cee (get edit form modal to render for each item (morteza & ai))
 }
 
 export default GroceryList;
