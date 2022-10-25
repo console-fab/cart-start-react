@@ -1,17 +1,11 @@
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function EditForm( {closeModal, result} ) {
 
     const navigate = useNavigate();
 	const [ groceryItem, setGroceryItem ] = useState(null)
-
-    useEffect(() => {
-        axios
-        .get(`https://cart-start.herokuapp.com/grocery-list/${result._id}`)
-        .then((data) => setGroceryItem(data))
-    }, [`${result._id}`])
 
 	const handleChange = e => {
     setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value })
@@ -27,7 +21,7 @@ function EditForm( {closeModal, result} ) {
     return (
 					<div id='modal-content'>
 					<h2>Editing {result.name}</h2>
-					<form onSubmit={()=>handleEdit(result._id)}>
+					<form className='bubble' onSubmit={()=>handleEdit(result._id)}>
 						<label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
@@ -35,7 +29,7 @@ function EditForm( {closeModal, result} ) {
 						onChange={handleChange}
 						id='name'
 						type='text'
-						defaultValue={groceryItem.name}
+						defaultValue={result.name}
 					/>
 					<p />
 					<label htmlFor='category'>Category:</label>
@@ -43,7 +37,7 @@ function EditForm( {closeModal, result} ) {
 					<select
 						id='category'
 						name='category'
-						defaultValue={groceryItem.category}
+						defaultValue={result.category}
 						onChange={handleChange}>
 						<option value='other'>🍾other</option>
 						<option value='produce'>🍎produce</option>
@@ -61,7 +55,7 @@ function EditForm( {closeModal, result} ) {
 						id='quantity'
 						type='number'
 						min='1'
-						defaultValue={groceryItem.quantity}
+						defaultValue={result.quantity}
 					/>
 					<p />
                 <label htmlFor='location'>Location:</label>
@@ -70,10 +64,10 @@ function EditForm( {closeModal, result} ) {
 						onChange={handleChange}
 						id='location'
 						type='text'
-						defaultValue={groceryItem.location}
+						defaultValue={result.location}
 					/>
-						<button type='submit'>Submit</button>
-						<button type='button' onClick={() => closeModal(false)}>
+						<button className='submit' type='submit'>Submit</button>
+						<button className='close' type='button' onClick={() => closeModal(false)}>
 							Close
 						</button>
 					</form>

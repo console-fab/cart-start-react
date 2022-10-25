@@ -4,6 +4,15 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.back {
+  background: rgba(250, 250, 250, .9);
+  width: fit-content;
+}
+
+.delete:hover:before {
+  content: "DELETE"
+}
+
 .wave {
   background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
   opacity: .5;
@@ -97,6 +106,7 @@ hr {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  flex-direction: row
 }
 
 .list {
