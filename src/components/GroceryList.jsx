@@ -62,43 +62,43 @@ function GroceryList() {
     let otherResults = results.filter(checkOther)
 
     function checkOther(item) {
-            return item.category == 'other'
+            return item.category === 'other'
     }
 
     let produceResults = results.filter(checkProduce)
 
     function checkProduce(item) {
-        return item.category == 'produce'
+        return item.category === 'produce'
     }
 
     let bakeryResults = results.filter(checkBakery)
 
     function checkBakery(item) {
-        return item.category == 'bakery'
+        return item.category === 'bakery'
     }
 
     let meatResults = results.filter(checkMeat)
 
     function checkMeat(item) {
-        return item.category == 'meat-seafood'
+        return item.category === 'meat-seafood'
     }
 
     let dairyResults = results.filter(checkDairy)
 
     function checkDairy(item) {
-        return item.category == 'dairy'
+        return item.category === 'dairy'
     }
 
     let dryResults = results.filter(checkDry)
 
     function checkDry(item) {
-        return item.category == 'dry-goods'
+        return item.category ==='dry-goods'
     }
 
     let frozenResults = results.filter(checkFrozen)
 
     function checkFrozen(item) {
-        return item.category == 'frozen'
+        return item.category ==='frozen'
     }
 
     return (
@@ -118,7 +118,7 @@ function GroceryList() {
 								? `, location: ${result.location}`
 								: ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-               {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
@@ -133,7 +133,7 @@ function GroceryList() {
 								? `, location: ${result.location}`
 								: ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-               {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
@@ -148,7 +148,7 @@ function GroceryList() {
 								? `, location: ${result.location}`
 								: ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-               {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
@@ -161,7 +161,7 @@ function GroceryList() {
 							{result.quantity ? ` x${result.quantity}` : ''}
 							{result.location ? `, location: ${result.location}` : ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-               {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
@@ -176,7 +176,7 @@ function GroceryList() {
 								? `, location: ${result.location}`
 								: ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-               {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
@@ -189,7 +189,7 @@ function GroceryList() {
 							{result.quantity ? ` x${result.quantity}` : ''}
 							{result.location ? `, location: ${result.location}` : ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-               {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}
@@ -204,7 +204,7 @@ function GroceryList() {
 								? `, location: ${result.location}`
 								: ''}
 							 <button id="openModal" onClick={() => editId(result._id)}>Edit</button>
-                            {editModal && (id == result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+                            {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button onClick={() => handleDelete(result._id)}>X</button>
 						</li>
 					))}

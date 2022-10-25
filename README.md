@@ -1,70 +1,35 @@
-# Getting Started with Create React Appzzzzzzzz
+## Cart-Start
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Created by:
 
-## Available Scripts
+Ai Terada,
+Brandon Bishop,
+Morteza Maddahi,
+Trey Towers.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Cart start is a grocery list creator application. We wanted to make a useful and fun app that helps you organize your grocery list by department. Hopefully you will enjoy it and use it for your next trip to the store!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+When making this app we wanted to have a functioning form to create each grocery item. We also made an edit form and a list section that separates your list items by category.
 
-### `npm test`
+## User Stories
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+As a user i want to be able to make a list of items I need before I go shopping for groceries so I can stay organized. As a user I want to be able to add things to my list wt any time so I don't forget anything while shopping.
 
-### `npm run build`
+## Technologies Used:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For this app we used [React], [HTML], [CSS], and [Javascript]. We also used our API we created to store our grocery list items [https://cart-start.herokuapp.com].
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To get started please use this link [https://cart-start.netlify.app].
+You can also use the Github link [https://github.com/console-fab/cart-start-react.git]. Then you can fork and clone the repository and start the app locally.
 
-### `npm run eject`
+## Contribution Guidelines
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To contribute, give feedback, or identify any bugs please use our Github link.[https://github.com/console-fab/cart-start-react.git]. Then you can fork and clone the repository and start the app locally.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Thank you!
