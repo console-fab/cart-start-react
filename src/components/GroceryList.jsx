@@ -37,7 +37,7 @@ function GroceryList() {
         //Clear Form
         setGroceryItem({
         name: '',
-        category: '',
+        category: 'other',
         quantity: '',
         location: '',
     });
