@@ -21,15 +21,15 @@ As a user i want to be able to make a list of items I need before I go shopping 
 
 ## Technologies Used:
 
-For this app we used [React], [HTML], [CSS], and [Javascript]. We also used our API we created to store our grocery list items [https://cart-start.herokuapp.com].
+For this app we used React, HTML, CSS, and Javascript. We also used our API we created to store our grocery list items (https://cart-start.herokuapp.com).
 
 ## Getting Started
 
-To get started please use this link [https://cart-start.netlify.app].
-You can also use the Github link [https://github.com/console-fab/cart-start-react.git]. Then you can fork and clone the repository and start the app locally.
+To get started please use this link (https://cart-start.netlify.app).
+You can also use the Github link (https://github.com/console-fab/cart-start-react.git). Then you can fork and clone the repository and start the app locally.
 
 ## Contribution Guidelines
 
-To contribute, give feedback, or identify any bugs please use our Github link.[https://github.com/console-fab/cart-start-react.git]. Then you can fork and clone the repository and start the app locally.
+To contribute, give feedback, or identify any bugs please use our Github link.(https://github.com/console-fab/cart-start-react.git). Then you can fork and clone the repository and start the app locally.
 
 ## Thank you!
