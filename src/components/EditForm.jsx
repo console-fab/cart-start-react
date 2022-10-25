@@ -1,90 +1,83 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function EditForm() {
+function EditForm( {closeModal, result} ) {
 
-    const { _id } = useParams();
-    const [groceryItem, setGroceryItem] = useState(null)
-    const [modal, setModal] = useState(false)
     const navigate = useNavigate();
-
+	const [ groceryItem, setGroceryItem ] = useState(null)
 
     useEffect(() => {
         axios
-        .get(`https://cart-start.herokuapp.com/grocery-list/${_id}`)
-        //figure out a way to pull id
-        .then((res) => setGroceryItem(res.data))
-    }, [_id]);
-    //need to change id
+        .get(`https://cart-start.herokuapp.com/grocery-list/${result._id}`)
+        .then((data) => setGroceryItem(data))
+    }, [`${result._id}`])
 
-	const handleChange = (event) => {
-		setGroceryItem({ ...groceryItem, [event.target.id]: event.target.value });
-	};
-
-	const confirmEdit = () => {
-		setModal(true);
-	};
-
-	const closeModal = () => {
-		setModal(false);
-	};
+	const handleChange = e => {
+    setGroceryItem({ ...groceryItem, [e.target.id]: e.target.value })
+    }
     
-    //UPDATE (handleEdit is what the edit button should do when clicked)
+    //UPDATE
     const handleEdit = e => {
         e.preventDefault();
-        axios.patch(`https://cart-start.herokuapp.com/grocery-list/${_id}`, groceryItem);
+        axios.patch(`https://cart-start.herokuapp.com/grocery-list/${result._id}`, groceryItem);
         navigate('/grocery-list')
     }
 
     return (
-        <section>
-			{modal ? (
-				<div className='modal'>
-					<h2>Editing {groceryItem.name}</h2>
-					<form onSubmit={handleEdit}>
-						<label>Name</label>
-						    <input
-                                onChange={handleChange}
-                                id='name'
-                                value={groceryItem.flavor}
-                                />
-
-						<label>Category</label>
-						    <input
-							    onChange={handleChange}
-							    id='category'
-							    value={groceryItem.category}
-						        />
-
-						<label>Quantity</label>
-						    <input
-							    onChange={handleChange}
-							    id='quantity'
-							    value={groceryItem.quantity}
-						    />
-
-                            <input
-							    onChange={handleChange}
-							    id='location'
-							    value={groceryItem.location}
-						    />
+					<div id='modal-content'>
+					<h2>Editing {result.name}</h2>
+					<form onSubmit={()=>handleEdit(result._id)}>
+						<label htmlFor='name'>Item Name:</label>
+					<br></br>
+					<input
+						required
+						onChange={handleChange}
+						id='name'
+						type='text'
+						defaultValue={groceryItem.name}
+					/>
+					<p />
+					<label htmlFor='category'>Category:</label>
+					<br></br>
+					<select
+						id='category'
+						name='category'
+						defaultValue={groceryItem.category}
+						onChange={handleChange}>
+						<option value='other'>🍾other</option>
+						<option value='produce'>🍎produce</option>
+                        <option value='bakery'>🥐bakery</option>
+						<option value='meat-seafood'>🥩meat-seafood</option>
+                        <option value='dairy'>🧀dairy</option>
+                        <option value='dry-goods'>🥫dry-goods</option>
+						<option value='frozen'>🧊frozen</option>
+					</select>
+					<p />
+                <label htmlFor='quantity'>Quantity:</label>
+					<br></br>
+					<input
+						onChange={handleChange}
+						id='quantity'
+						type='number'
+						min='1'
+						defaultValue={groceryItem.quantity}
+					/>
+					<p />
+                <label htmlFor='location'>Location:</label>
+					<br></br>
+					<input
+						onChange={handleChange}
+						id='location'
+						type='text'
+						defaultValue={groceryItem.location}
+					/>
 						<button type='submit'>Submit</button>
-						<button type='button' onClick={closeModal}>
+						<button type='button' onClick={() => closeModal(false)}>
 							Close
 						</button>
 					</form>
-				</div>
-            ) : (
-				<>
-					<h2>{groceryItem.name}</h2>
-					<h2>{groceryItem.category}</h2>
-					<h2>{groceryItem.quantity}</h2>
-					<h2>{groceryItem.location}</h2>
-					<button onClick={confirmEdit}>Confirm</button>
-				</>
-			)}
-		</section>
+					</div>
 	);
 };
 
