@@ -11,7 +11,7 @@ function GroceryList() {
     const navigate = useNavigate();
     const [groceryItem, setGroceryItem] = useState({
         name: '',
-        category: '',
+        category: 'other',
         quantity: '',
         location: '',
     });
@@ -54,8 +54,6 @@ function GroceryList() {
     //DELETE
     const handleDelete = (_id) => {
         axios.delete(`https://cart-start.herokuapp.com/grocery-list/${_id}`)
-        //unsure how to grab result._id of this delete.. we have to find the index of where this data exists in the array and splice it
-        //setResults()
         navigate('/grocery-list');
     }
 
