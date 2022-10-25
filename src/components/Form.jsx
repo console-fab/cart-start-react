@@ -1,8 +1,8 @@
 const Form = ({groceryItem, handleChange, handleSubmit}) => {
 
     return (
-			<div className='form-box'>
-				<form className='bubble' onSubmit={handleSubmit}>
+			<div className="list0">
+				<form className='bubble back' onSubmit={handleSubmit}>
                 <label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
@@ -11,6 +11,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						id='name'
 						type='text'
 						value={groceryItem.name}
+						autoFocus
 					/>
 					<p />
 					<label htmlFor='category'>Category:</label>
@@ -48,7 +49,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						type='text'
 						value={groceryItem.location}
 					/>
-					<button type='submit'>Submit</button>
+					<button className="submit" type='submit'>Submit</button>
 				</form>
 			</div>
 		);
