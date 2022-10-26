@@ -49,6 +49,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						type='text'
 						value={groceryItem.location}
 					/>
+					<p/>
 					<button className="submit" type='submit'>Submit</button>
 				</form>
 			</div>
