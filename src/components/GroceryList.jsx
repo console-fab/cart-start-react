@@ -116,8 +116,10 @@ function GroceryList() {
 								? `, store: ${result.location}`
 								: ''}
                                 <br/>
+                            {/* user can edit inputs  */}
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
+                            {/* user can delete category */}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}

@@ -1,12 +1,14 @@
 const Form = ({groceryItem, handleChange, handleSubmit}) => {
 
     return (
-			<div className="list0">
+			<div className='list0'>
 				<form className='bubble back' onSubmit={handleSubmit}>
-                <label htmlFor='name'>Item Name:</label>
+					{/* name of Item */}
+					<label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
 						required
+						// When the user types on <input> element, the onChange event handler function will create an event object and pass it to the handleChange() function
 						onChange={handleChange}
 						id='name'
 						type='text'
@@ -14,14 +16,15 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						autoFocus
 					/>
 					<p />
+
+					{/* category of grocery items */}
 					<label htmlFor='category'>Category:</label>
 					<br></br>
 					<select
 						id='category'
 						name='category'
 						value={groceryItem.category}
-						onChange={handleChange}
-						>
+						onChange={handleChange}>
 						<option value='other'>🍾other</option>
 						<option value='produce'>🍎produce</option>
 						<option value='bakery'>🥐bakery</option>
@@ -31,6 +34,8 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						<option value='frozen'>🧊frozen</option>
 					</select>
 					<p />
+
+					{/* quantity of Item */}
 					<label htmlFor='quantity'>Quantity:</label>
 					<br></br>
 					<input
@@ -41,6 +46,8 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						value={groceryItem.quantity}
 					/>
 					<p />
+
+					{/* location of store */}
 					<label htmlFor='location'>Location:</label>
 					<br></br>
 					<input
@@ -50,7 +57,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 						value={groceryItem.location}
 					/>
 					<p/>
-					<button className="submit" type='submit'>Submit</button>
+					<button className='submit' type='submit'>Submit</button>
 				</form>
 			</div>
 		);

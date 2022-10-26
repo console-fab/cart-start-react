@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+// showing About component
 function About(props) {
     return (
         <div>
