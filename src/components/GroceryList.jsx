@@ -37,7 +37,7 @@ function GroceryList() {
         //Clear Form
         setGroceryItem({
         name: '',
-        category: '',
+        category: 'other',
         quantity: '',
         location: '',
     });
@@ -48,13 +48,20 @@ function GroceryList() {
         axios
         .get(`https://cart-start.herokuapp.com/grocery-list/`)
         .then((res) => setResults(res.data))
-       
     })
 
     //DELETE
     const handleDelete = (_id) => {
         axios.delete(`https://cart-start.herokuapp.com/grocery-list/${_id}`)
         navigate('/grocery-list');
+    }
+
+    const checkCategory = (res) => {
+        if (res !== null) {
+            return true
+        } else {
+            return false
+        }
     }
 
     let otherResults = results.filter(checkOther)
@@ -106,117 +113,124 @@ function GroceryList() {
 					handleSubmit={handleSubmit}
 					handleChange={handleChange}
 				/>
-                <div className='bubble back'>
-            <h1 className='other bubble'>Other</h1>
-				<ul className='list'>
+                <div className='bubble back list1'>
+            <h1 className='fit other bubble'>Other</h1>
+				<ul>
 					{otherResults.map((result) => (
-						<li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+						<li key={result._id}>
+							<strong><strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong></strong>
 							{result.location
-								? `, location: ${result.location}`
+								? `, store: ${result.location}`
 								: ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+                                <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
                 </div>
-                <div className='bubble back'>
-				<h1 className='produce bubble'>Produce</h1>
-				<ul className='list'>
+                <div className='bubble back list2'>
+				<h1 className='fit produce bubble'>Produce</h1>
+				<ul>
 					{produceResults.map((result) => (
-						<li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+						<li key={result._id}>
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
-								? `, location: ${result.location}`
+								? `, store: ${result.location}`
 								: ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+                                <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
                 </div>
-                <div className='bubble back'>
-            <h1 className='bakery bubble'>Bakery</h1>
-				<ul className='list bubble'>
+                <div className='bubble back list3'>
+            <h1 className='fit bakery bubble'>Bakery</h1>
+				<ul>
 					{bakeryResults.map((result) => (
-                        <li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+                        <li key={result._id}>
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
-								? `, location: ${result.location}`
+								? `, store: ${result.location}`
 								: ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+                                <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
                 </div>
-                <div className='bubble back'>
-            <h1 className='meat-seafood bubble'>Meat/Seafood</h1>
-				<ul className='list bubble'>
+                <div className='bubble back list4'>
+            <h1 className='fit meat-seafood bubble'>Meat/Seafood</h1>
+				<ul>
 					{meatResults.map((result) => (
-                        <li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
-							{result.location ? `, location: ${result.location}` : ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+                        <li key={result._id}>
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
+							{result.location ? `, store: ${result.location}` : ''}
+                            <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
                 </div>
-                <div className='bubble back'>
-				<h1 className='dairy bubble'>Dairy</h1>
-				<ul className='list bubble'>
+                <div className='bubble back list5'>
+				<h1 className='fit dairy bubble'>Dairy</h1>
+				<ul>
 					{dairyResults.map((result) => (
-						<li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+						<li key={result._id}>
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
-								? `, location: ${result.location}`
+								? `, store: ${result.location}`
 								: ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+                                <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
                 </div>
-                <div className='bubble back'>
-				<h1 className='dry-goods bubble'>Dry Goods</h1>
-				<ul className='list bubble'>
+                <div className='bubble back list6'>
+				<h1 className='fit dry-goods bubble'>Dry Goods</h1>
+				<ul>
 					{dryResults.map((result) => (
-						<li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
-							{result.location ? `, location: ${result.location}` : ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+						<li key={result._id}>
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
+							{result.location ? `, store: ${result.location}` : ''}
+                            <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
                 </div>
-                <div className='bubble back'>
-				<h1 className='frozen bubble'>Frozen</h1>
-				<ul className='list bubble'>
+                <div className='bubble back list7'>
+				<h1 className='fit frozen bubble'>Frozen</h1>
+				<ul>
 					{frozenResults.map((result) => (
-						<li className='bubble' key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+						<li key={result._id}>
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
-								? `, location: ${result.location}`
+								? `, store: ${result.location}`
 								: ''}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>Edit</button>
+                                <br/>
+							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                             {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>X</button>
+							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
 						</li>
 					))}
 				</ul>
