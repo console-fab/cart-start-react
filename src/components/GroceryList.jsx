@@ -56,14 +56,6 @@ function GroceryList() {
         navigate('/grocery-list');
     }
 
-    const checkCategory = (res) => {
-        if (res !== null) {
-            return true
-        } else {
-            return false
-        }
-    }
-
     let otherResults = results.filter(checkOther)
 
     function checkOther(item) {
