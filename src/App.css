@@ -74,6 +74,10 @@ input, select {
   cursor: pointer;
 }
 
+.modal {
+  border: none;
+}
+
 .wave {
   background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
   opacity: .5;
@@ -126,7 +130,7 @@ input, select {
 
 hr {
   border: .6rem dotted rgba(250, 250, 250, .9);
-  width: 97%;
+  width: 100%;
 }
 
 .creators {
@@ -179,7 +183,7 @@ hr {
 .list0 {
   grid-row: 1 / span 1;
   grid-column: 1 / span 3;
-  background: rgb(55, 0, 253)
+  background: rgb(255, 217, 0);
 }
 
 .list1 {

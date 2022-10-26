@@ -23,7 +23,7 @@ function EditForm( {closeModal, result} ) {
     return (
 					<div id='modal-content'>
 					<h2>Editing {result.name}</h2>
-					<form className='bubble' onSubmit={handleEdit}>
+					<form onSubmit={handleEdit}>
 						<label htmlFor='name'>Item Name:</label>
 					<br></br>
 					<input
