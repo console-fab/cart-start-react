@@ -8,7 +8,7 @@ const Form = ({groceryItem, handleChange, handleSubmit}) => {
 					<br></br>
 					<input
 						required
-						// When the user types on <input> element, the onChange event handler function will create an event object and pass it to the handleChange() function
+						// When the user types on <input> element, the onChange event handler will create an event object and pass it to the handleChange() function. Name section is required.
 						onChange={handleChange}
 						id='name'
 						type='text'

@@ -25,7 +25,7 @@ function GroceryList() {
     const [editModal, setEditModal] = useState(false)
     const [id, setId] = useState('')
     
-    //SET ID
+    //SET ID: open edit modal and set the id of which item user is editing
     const editId = (id) => {
         setEditModal(true)
         setId(id)
@@ -38,7 +38,7 @@ function GroceryList() {
     //CREATE
     const handleSubmit = e => {
         e.preventDefault();
-        //post into the grocery-list api
+        //Post into the grocery-list api
         axios.post('https://cart-start.herokuapp.com/grocery-list', groceryItem)
         //Clear Form
         setGroceryItem({
