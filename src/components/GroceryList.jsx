@@ -114,15 +114,16 @@ function GroceryList() {
 					handleChange={handleChange}
 				/>
                 <div className='bubble back list1'>
-            <h1 className='other bubble'>Other</h1>
+            <h1 className='fit other bubble'>Other</h1>
 				<ul>
 					{otherResults.map((result) => (
 						<li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong><strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong></strong>
 							{result.location
 								? `, store: ${result.location}`
 								: ''}
+                                <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
@@ -131,15 +132,16 @@ function GroceryList() {
 				</ul>
                 </div>
                 <div className='bubble back list2'>
-				<h1 className='produce bubble'>Produce</h1>
+				<h1 className='fit produce bubble'>Produce</h1>
 				<ul>
 					{produceResults.map((result) => (
 						<li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
 								? `, store: ${result.location}`
 								: ''}
+                                <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
@@ -148,15 +150,16 @@ function GroceryList() {
 				</ul>
                 </div>
                 <div className='bubble back list3'>
-            <h1 className='bakery bubble'>Bakery</h1>
+            <h1 className='fit bakery bubble'>Bakery</h1>
 				<ul>
 					{bakeryResults.map((result) => (
                         <li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
 								? `, store: ${result.location}`
 								: ''}
+                                <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
@@ -165,13 +168,14 @@ function GroceryList() {
 				</ul>
                 </div>
                 <div className='bubble back list4'>
-            <h1 className='meat-seafood bubble'>Meat/Seafood</h1>
+            <h1 className='fit meat-seafood bubble'>Meat/Seafood</h1>
 				<ul>
 					{meatResults.map((result) => (
                         <li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location ? `, store: ${result.location}` : ''}
+                            <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
@@ -180,15 +184,16 @@ function GroceryList() {
 				</ul>
                 </div>
                 <div className='bubble back list5'>
-				<h1 className='dairy bubble'>Dairy</h1>
+				<h1 className='fit dairy bubble'>Dairy</h1>
 				<ul>
 					{dairyResults.map((result) => (
 						<li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
 								? `, store: ${result.location}`
 								: ''}
+                                <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
@@ -197,13 +202,14 @@ function GroceryList() {
 				</ul>
                 </div>
                 <div className='bubble back list6'>
-				<h1 className='dry-goods bubble'>Dry Goods</h1>
+				<h1 className='fit dry-goods bubble'>Dry Goods</h1>
 				<ul>
 					{dryResults.map((result) => (
 						<li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location ? `, store: ${result.location}` : ''}
+                            <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
@@ -212,15 +218,16 @@ function GroceryList() {
 				</ul>
                 </div>
                 <div className='bubble back list7'>
-				<h1 className='frozen bubble'>Frozen</h1>
+				<h1 className='fit frozen bubble'>Frozen</h1>
 				<ul>
 					{frozenResults.map((result) => (
 						<li key={result._id}>
-							{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}
+							<strong>{result.name}
+							{result.quantity ? ` x${result.quantity}` : ''}</strong>
 							{result.location
 								? `, store: ${result.location}`
 								: ''}
+                                <br/>
 							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
                             {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
 							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
