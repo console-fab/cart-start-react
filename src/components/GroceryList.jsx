@@ -48,13 +48,20 @@ function GroceryList() {
         axios
         .get(`https://cart-start.herokuapp.com/grocery-list/`)
         .then((res) => setResults(res.data))
-       
     })
 
     //DELETE
     const handleDelete = (_id) => {
         axios.delete(`https://cart-start.herokuapp.com/grocery-list/${_id}`)
         navigate('/grocery-list');
+    }
+
+    const checkCategory = (res) => {
+        if (res !== null) {
+            return true
+        } else {
+            return false
+        }
     }
 
     let otherResults = results.filter(checkOther)
