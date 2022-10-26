@@ -16,7 +16,7 @@ Cart start is a grocery list creator application. We wanted to make a useful and
 
 ## Planning
 
-Here is a link to our planning board https://crawling-snarl-6d7.notion.site/ff2eb8740c514985a31f92284c43a70e?v=9771575d395c4c76900bc491e7031b06.
+Here is a link to our [planning board](https://crawling-snarl-6d7.notion.site/ff2eb8740c514985a31f92284c43a70e?v=9771575d395c4c76900bc491e7031b06).
 
 ## Wireframe
 
