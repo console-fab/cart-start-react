@@ -3,6 +3,13 @@ import { useState, useEffect } from 'react';
 import Form from './Form';
 import EditForm from './EditForm';
 import { useNavigate } from 'react-router-dom';
+import Other from './categories/Other';
+import Produce from './categories/Produce';
+import Bakery from './categories/Bakery';
+import Dairy from './categories/Dairy';
+import DryGoods from './categories/DryGoods';
+import Frozen from './categories/Frozen';
+import MeatSeafood from './categories/MeatSeafood';
 
 function GroceryList() {
     
@@ -31,7 +38,6 @@ function GroceryList() {
     //CREATE
     const handleSubmit = e => {
         e.preventDefault();
-
         //post into the grocery-list api
         axios.post('https://cart-start.herokuapp.com/grocery-list', groceryItem)
         //Clear Form
@@ -56,6 +62,7 @@ function GroceryList() {
         navigate('/grocery-list');
     }
 
+    // VARIABLES: Saving each category results to a variable
     let otherResults = results.filter(checkOther)
 
     function checkOther(item) {
@@ -100,136 +107,29 @@ function GroceryList() {
 
     return (
 			<div className='lists'>
+                {/* Form to create an item */}
 				<Form
 					groceryItem={groceryItem}
 					handleSubmit={handleSubmit}
 					handleChange={handleChange}
 				/>
-                <div className='bubble back list1'>
-            <h1 className='fit other bubble'>Other</h1>
-				<ul>
-					{otherResults.map((result) => (
-						<li key={result._id}>
-							<strong><strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong></strong>
-							{result.location
-								? `, store: ${result.location}`
-								: ''}
-                                <br/>
-                            {/* user can edit inputs  */}
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-                            {/* user can delete category */}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-                <div className='bubble back list2'>
-				<h1 className='fit produce bubble'>Produce</h1>
-				<ul>
-					{produceResults.map((result) => (
-						<li key={result._id}>
-							<strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong>
-							{result.location
-								? `, store: ${result.location}`
-								: ''}
-                                <br/>
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-                <div className='bubble back list3'>
-            <h1 className='fit bakery bubble'>Bakery</h1>
-				<ul>
-					{bakeryResults.map((result) => (
-                        <li key={result._id}>
-							<strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong>
-							{result.location
-								? `, store: ${result.location}`
-								: ''}
-                                <br/>
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-                <div className='bubble back list4'>
-            <h1 className='fit meat-seafood bubble'>Meat/Seafood</h1>
-				<ul>
-					{meatResults.map((result) => (
-                        <li key={result._id}>
-							<strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong>
-							{result.location ? `, store: ${result.location}` : ''}
-                            <br/>
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-                <div className='bubble back list5'>
-				<h1 className='fit dairy bubble'>Dairy</h1>
-				<ul>
-					{dairyResults.map((result) => (
-						<li key={result._id}>
-							<strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong>
-							{result.location
-								? `, store: ${result.location}`
-								: ''}
-                                <br/>
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-                <div className='bubble back list6'>
-				<h1 className='fit dry-goods bubble'>Dry Goods</h1>
-				<ul>
-					{dryResults.map((result) => (
-						<li key={result._id}>
-							<strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong>
-							{result.location ? `, store: ${result.location}` : ''}
-                            <br/>
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-               {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-                <div className='bubble back list7'>
-				<h1 className='fit frozen bubble'>Frozen</h1>
-				<ul>
-					{frozenResults.map((result) => (
-						<li key={result._id}>
-							<strong>{result.name}
-							{result.quantity ? ` x${result.quantity}` : ''}</strong>
-							{result.location
-								? `, store: ${result.location}`
-								: ''}
-                                <br/>
-							 <button className='edit' id="openModal" onClick={() => editId(result._id)}>EDIT</button>
-                            {editModal && (id === result._id) && <EditForm closeModal={setEditModal} result={result}/>}
-							<button className='delete' onClick={() => handleDelete(result._id)}>DELETE</button>
-						</li>
-					))}
-				</ul>
-                </div>
-			</div>
+                
+                {/* Components for each category result */}
+                <Other otherResults={otherResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+                <Produce produceResults={produceResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+                <Bakery bakeryResults={bakeryResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+                <MeatSeafood meatResults={meatResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+                <Dairy dairyResults={dairyResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+                <DryGoods dryResults={dryResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+                <Frozen frozenResults={frozenResults} EditForm={EditForm} closeModal={setEditModal} handleDelete={handleDelete} editModal={editModal} editId={editId} id={id} setEditModal={setEditModal}/>
+
+            </div>
 		);
 }
 
