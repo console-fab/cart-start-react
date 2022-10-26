@@ -4,6 +4,11 @@
   -webkit-font-smoothing: antialiased;
 }
 
+hr {
+  border: .6rem dotted rgba(250, 250, 250, .9);
+  width: 100%;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -11,6 +16,12 @@ ul {
 
 input, select {
   border-radius: .5rem;
+  border: solid 2px;
+  width: 8rem;
+}
+
+label {
+  font-weight: bold;
 }
 
 .back {
@@ -74,36 +85,8 @@ input, select {
   cursor: pointer;
 }
 
-.wave {
-  background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
-  opacity: .5;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: -50%;
-  right: -50%;
-  position: fixed;
-  animation: slide 16s ease-in-out infinite alternate;
-  animation-direction: alternate-reverse;
-}
-
-.wave2 {
-  animation-duration: 18s;
-}
-
-.wave3 {
-  animation-duration: 21s;
-}
-
-
-@keyframes slide {
-  15% {
-    transform: translateX(-8%);
-  }
-
-  30% {
-    transform: translateX(10%);
-  }
+.modal {
+  border: none;
 }
 
 .welcome {
@@ -122,11 +105,6 @@ input, select {
 .about {
   background: rgba(250, 250, 250, .6);
   font-size: 1.2rem;
-}
-
-hr {
-  border: .6rem dotted rgba(250, 250, 250, .9);
-  width: 97%;
 }
 
 .creators {
@@ -169,6 +147,11 @@ hr {
   block-size: fit-content;
 }
 
+.list {
+  font-size: 1rem;
+  background: rgba(250, 250, 250, .9);
+}
+
 .lists {
   display: grid;
   grid-template-rows: 0fr 0fr 0fr 0fr;
@@ -179,7 +162,7 @@ hr {
 .list0 {
   grid-row: 1 / span 1;
   grid-column: 1 / span 3;
-  background: rgb(55, 0, 253)
+  background: rgb(255, 217, 0);
 }
 
 .list1 {
@@ -224,11 +207,6 @@ hr {
   text-align: left;
 }
 
-.list {
-  font-size: 1rem;
-  background: rgba(250, 250, 250, .9);
-}
-
 .produce {
   border: 1px solid green;
   background: rgba(112, 192, 158, .9);
@@ -261,6 +239,66 @@ hr {
 
 .other {
   background: rgba(218, 216, 212, .9);
+}
+
+.wave {
+  background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
+  opacity: .5;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  right: -50%;
+  position: fixed;
+  animation: slide 16s ease-in-out infinite alternate;
+  animation-direction: alternate-reverse;
+}
+
+.wave2 {
+  animation-duration: 18s;
+}
+
+.wave3 {
+  animation-duration: 21s;
+}
+
+@keyframes slide {
+  15% {
+    transform: translateX(-8%);
+  }
+
+  30% {
+    transform: translateX(10%);
+  }
+}.wave {
+  background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
+  opacity: .5;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  right: -50%;
+  position: fixed;
+  animation: slide 16s ease-in-out infinite alternate;
+  animation-direction: alternate-reverse;
+}
+
+.wave2 {
+  animation-duration: 18s;
+}
+
+.wave3 {
+  animation-duration: 21s;
+}
+
+@keyframes slide {
+  15% {
+    transform: translateX(-8%);
+  }
+
+  30% {
+    transform: translateX(10%);
+  }
 }
 
 @media only screen and (max-width: 600px) {
