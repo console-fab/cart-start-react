@@ -39,7 +39,7 @@ function GroceryList() {
     const handleSubmit = e => {
         e.preventDefault();
         //Post into the grocery-list api
-        axios.post('https://cart-start.herokuapp.com/grocery-list', groceryItem)
+        axios.post('https://cart-start.onrender.com/grocery-list/', groceryItem)
         //Clear Form
         setGroceryItem({
         name: '',
@@ -52,13 +52,13 @@ function GroceryList() {
     //READ ALL
     useEffect(() => {
         axios
-        .get(`https://cart-start.herokuapp.com/grocery-list/`)
+        .get(`https://cart-start.onrender.com/grocery-list/`)
         .then((res) => setResults(res.data))
-    })
+    }, [])
 
     //DELETE
     const handleDelete = (_id) => {
-        axios.delete(`https://cart-start.herokuapp.com/grocery-list/${_id}`)
+        axios.delete(`https://cart-start.onrender.com/grocery-list/${_id}`)
         navigate('/grocery-list');
     }
 

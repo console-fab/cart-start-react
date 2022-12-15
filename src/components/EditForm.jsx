@@ -14,7 +14,7 @@ function EditForm( {closeModal, result} ) {
     //user can update the grocery list
     const handleEdit = e => {
         e.preventDefault();
-        axios.patch(`https://cart-start.herokuapp.com/grocery-list/${result._id}`, groceryItem)
+        axios.patch(`https://cart-start.onrender.com/grocery-list/${result._id}`, groceryItem)
 		.then(res => res.data);
 		closeModal(false);
         navigate('/grocery-list')
