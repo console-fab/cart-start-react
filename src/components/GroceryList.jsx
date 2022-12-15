@@ -39,7 +39,7 @@ function GroceryList() {
     const handleSubmit = e => {
         e.preventDefault();
         //Post into the grocery-list api
-        axios.post('https://cart-start.onrender.com/grocery-list', groceryItem)
+        axios.post('https://cart-start.onrender.com/grocery-list/', groceryItem)
         //Clear Form
         setGroceryItem({
         name: '',
@@ -54,7 +54,7 @@ function GroceryList() {
         axios
         .get(`https://cart-start.onrender.com/grocery-list/`)
         .then((res) => setResults(res.data))
-    })
+    }, [])
 
     //DELETE
     const handleDelete = (_id) => {
