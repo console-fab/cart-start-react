@@ -270,25 +270,6 @@ label {
   30% {
     transform: translateX(10%);
   }
-}.wave {
-  background: linear-gradient(-10deg, rgb(141, 141, 210) 56%, rgb(218, 216, 212) 56%);
-  opacity: .5;
-  z-index: -1;
-  top: 0;
-  bottom: 0;
-  left: -50%;
-  right: -50%;
-  position: fixed;
-  animation: slide 16s ease-in-out infinite alternate;
-  animation-direction: alternate-reverse;
-}
-
-.wave2 {
-  animation-duration: 18s;
-}
-
-.wave3 {
-  animation-duration: 21s;
 }
 
 @keyframes slide {
@@ -302,10 +283,6 @@ label {
 }
 
 @media only screen and (max-width: 600px) {
-  .wave {
-    animation: none;
-    }
-
     .welcome {
       font-size: 1.5rem;
     }
